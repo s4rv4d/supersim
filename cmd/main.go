@@ -67,9 +67,12 @@ func main() {
 			Action: cliapp.LifecycleCmd(SupersimMain),
 		},
 		{
-			Name:   config.DocsCommandName,
-			Usage:  "Display available docs links",
-			Action: cliapp.LifecycleCmd(SupersimMain),
+			Name:  config.DocsCommandName,
+			Usage: "Display available docs links",
+			Action: func(c *cli.Context) error {
+				config.PrintDocLinks()
+				return nil
+			},
 		},
 	}
 
